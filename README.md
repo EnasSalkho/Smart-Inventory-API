@@ -1,59 +1,146 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+📦 Smart Inventory Management API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Smart Inventory API هو نظام إدارة مخزون احترافي مبني باستخدام Laravel، يوفر طريقة مرنة وآمنة لإدارة التصنيفات، المنتجات، كميات المخزون، وتتبع عمليات الإدخال والإخراج مع دعم التنبيهات عند انخفاض المخزون.
 
-## About Laravel
+المشروع يعتبر تدريب عملي كامل لبناء RESTful API باستخدام Laravel 11، JWT، Events، Seeders، Resources، وBest Practices.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+🚀 Features
+🔐 Authentication (JWT)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+تسجيل مستخدم جديد
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+تسجيل الدخول
 
-## Learning Laravel
+تسجيل الخروج
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+حماية المسارات باستخدام JWT Middleware
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+🗂 Categories Module
 
-## Laravel Sponsors
+إنشاء تصنيف جديد
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+تعديل تصنيف
 
-### Premium Partners
+عرض قائمة التصنيفات مع Pagination
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+حذف تصنيف
 
-## Contributing
+التحقق من المدخلات عبر Form Requests
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+استخدام CategoryResource لإرجاع البيانات
 
-## Code of Conduct
+📦 Products Module
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+إضافة منتج
 
-## Security Vulnerabilities
+تعديل منتج
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+حذف منتج
 
-## License
+عرض جميع المنتجات مع بيانات التصنيف
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+حساب حالة المخزون (Low Stock)
+
+إطلاق Event عند تحديث الكمية
+
+ProductResource + Requests + Seeders
+
+🔁 Stock Transactions
+
+إدخال مخزون (Stock In)
+
+إخراج مخزون (Stock Out) مع منع السحب الزائد
+
+تسجيل العمليات في جدول transactions
+
+عرض تاريخ العمليات لمنتج محدد
+
+StockTransactionResource
+
+🔔 Events System
+
+Event: StockUpdated
+
+جاهز لربطه بـ Notifications أو Listeners لاحقاً
+
+🧪 Seeders & Factories
+
+Category Factory + Seeder
+
+Product Factory + Seeder
+
+StockTransaction Factory + Seeder
+
+بناء بيانات تجريبية كاملة بضغطة واحدة
+
+▶️ كيفية تشغيل المشروع (Installation Guide)
+1️⃣ استنساخ المشروع
+git clone https://github.com/username/smart-inventory-api.git
+cd smart-inventory-api
+
+2️⃣ تثبيت الحزم
+composer install
+
+3️⃣ إنشاء ملف البيئة
+cp .env.example .env
+
+4️⃣ توليد مفتاح التطبيق
+php artisan key:generate
+
+5️⃣ إعداد قاعدة البيانات
+
+حدّث إعدادات MySQL في ملف .env:
+
+DB_DATABASE=inventory
+DB_USERNAME=root
+DB_PASSWORD=
+
+6️⃣ تشغيل الميجريشن + السييدرز
+php artisan migrate --seed
+
+7️⃣ توليد JWT Secret
+php artisan jwt:secret
+
+8️⃣ تشغيل السيرفر
+php artisan serve
+
+🧪 Postman Collection
+
+ملف التجربة موجود داخل:
+
+/postman/SmartInventoryAPI.postman_collection.json
+
+
+يمكن استيراده في Postman لتجربة جميع الواجهات.
+
+📡 API Endpoints
+🔐 Authentication
+Method	Endpoint	Description
+POST	/register	إنشاء مستخدم
+POST	/login	تسجيل الدخول
+POST	/logout	تسجيل الخروج
+🗂 Categories
+Method	Endpoint	Action
+GET	/categories	قائمة التصنيفات
+POST	/categories	إضافة
+GET	/categories/{id}	عرض
+PUT	/categories/{id}	تعديل
+DELETE	/categories/{id}	حذف
+📦 Products
+Method	Endpoint	Action
+GET	/products	عرض جميع المنتجات
+POST	/products	إضافة
+GET	/products/{id}	عرض
+PUT	/products/{id}	تعديل
+DELETE	/products/{id}	حذف
+🔁 Stock
+Method	Endpoint	Action
+POST	/stock/in	إدخال مخزون
+POST	/stock/out	إخراج مخزون
+GET	/stock/history?product_id=1	تاريخ العمليات
+👩‍💻 Author
+
+Enas — Backend Laravel Developer
+مشروع تدريبي كامل لإنشاء API متكامل واحترافي.
+
+⭐ إذا أعجبك المشروع، لا تنسَ ترك Star! ⭐
